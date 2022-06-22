@@ -1,0 +1,23 @@
+{
+    "name": "fakesudo/plutocore",
+    "description": "PHP Pluto FrameWork.",
+    "require": {
+        "longman/telegram-bot": "^0.77.1",
+        "vlucas/phpdotenv": "^5.4",
+        "illuminate/database": "^9.18",
+        "twig/twig": "^3.0",
+        "bramus/router": "~1.6"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "FakeSudo\\Pluto\\": "."
+        }
+    },
+    "authors": [
+        {
+            "name": "AmirHossein Alibabaei",
+            "email": "FakeSudoer@gmail.com"
+        }
+    ]
+}
