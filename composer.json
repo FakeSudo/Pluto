@@ -1,5 +1,5 @@
 {
-    "name": "fakesudo/plutocore",
+    "name": "fakesudo/pluto",
     "description": "PHP Pluto FrameWork.",
     "require": {
         "longman/telegram-bot": "^0.77.1",
