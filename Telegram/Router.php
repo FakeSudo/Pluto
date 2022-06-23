@@ -55,8 +55,15 @@ class Router{
         $this->exec($Controller,$this->Update);
     }
 
+    /**
+     * match
+     *
+     * @param  mixed $Types
+     * @param  mixed $Controller
+     * @return void
+     */
     public function match($Types = [], $Controller){
-        if(in_array($this->MessageType,$Types)){
+        if(array_key_exists(array_search($this->UpdateType,$this->UpdateTypes),$Types)){
             $this->exec($Controller,$this->Update);
             exit();
         }
@@ -70,7 +77,7 @@ class Router{
      * @return void
      */
     public function Command(string $Route, string $Controller) {
-        if($this->MessageType == "command" && preg_match("/^(\/$Route)/", $this->Update->getMessage()->getText())){
+        if($this->UpdateType == "command" && preg_match("/^(\/$Route)/", $this->Update->getMessage()->getText())){
             $this->exec($Controller,$this->Update->getMessage());
             exit();
         }
