@@ -56,7 +56,7 @@ class Router{
     }
 
     public function match($Types = [], $Controller){
-        if(array_key_exists($this->MessageType,$Types)){
+        if(in_array($this->MessageType,$Types)){
             $this->exec($Controller,$this->Update);
             exit();
         }
