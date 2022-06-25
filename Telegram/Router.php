@@ -104,7 +104,7 @@ class Router{
      * @return void
      */
     public function Text(string $Route, string $Controller) {
-        if($this->MessageType == "text" && preg_match("/^($Route)/", $this->Update->getMessage()->getText())){
+        if($this->UpdateType == "text" && preg_match("/^($Route)/", $this->Update->getMessage()->getText())){
             $this->exec($Controller,$this->Update->getMessage());
             exit();
         }
