@@ -21,7 +21,7 @@ class Client
     public function __construct($rootPath)
     {
         Kernel::loadEnv($rootPath);
-        $this->rootPath = str_replace('/public','',$rootPath);
+        $this->rootPath = str_replace(DIRECTORY_SEPARATOR.'public','',$rootPath);
         $this->Telegram = new Telegram($_ENV['TELEGRAM_BOT_API_KEY'], $_ENV['TELEGRAM_BOT_USERNAME']);
         $this->Telegram->handle();
 
@@ -39,6 +39,6 @@ class Client
 
     public function load(){
         $Route = $this->getRouter();
-        require_once $this->rootPath . '/routes/Telegram.php';
+        require_once $this->rootPath . DIRECTORY_SEPARATOR.'routes'.DIRECTORY_SEPARATOR.'Telegram.php';
     }
 }

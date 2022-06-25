@@ -15,7 +15,7 @@ class Kernel {
         return new WebClient($rootPath);
     }
     public static function loadEnv($rootPath){
-        Dotenv::createImmutable(str_replace('/public','',$rootPath))->load();
+        Dotenv::createImmutable(str_replace(DIRECTORY_SEPARATOR.'public','',$rootPath))->load();
     }
     public static function loadORM($rootPath){
         self::loadEnv($rootPath);
