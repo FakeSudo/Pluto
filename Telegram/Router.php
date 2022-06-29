@@ -77,7 +77,7 @@ class Router{
      * @return void
      */
     public function Command(string $Route, string $Controller) {
-        if($this->UpdateType == "command" && preg_match("/^(\/$Route)/", $this->Update->getMessage()->getText())){
+        if($this->UpdateType == "command" && preg_match("/$Route/", $this->Update->getMessage()->getText())){
             $this->exec($Controller,$this->Update->getMessage());
             exit();
         }
@@ -104,7 +104,7 @@ class Router{
      * @return void
      */
     public function Text(string $Route, string $Controller) {
-        if($this->UpdateType == "text" && preg_match("/^($Route)/", $this->Update->getMessage()->getText())){
+        if($this->UpdateType == "text" && preg_match("/$Route/", $this->Update->getMessage()->getText())){
             $this->exec($Controller,$this->Update->getMessage());
             exit();
         }
@@ -131,7 +131,7 @@ class Router{
      * @return void
      */
     public function InlineQuery(string $Route, string $Controller) {
-        if($this->UpdateType == 'inline_query' && preg_match("/^($Route)/", $this->Update->getInlineQuery()->getQuery())){
+        if($this->UpdateType == 'inline_query' && preg_match("/$Route/", $this->Update->getInlineQuery()->getQuery())){
             $this->exec($Controller,$this->Update->getInlineQuery());
             exit();
         }
@@ -158,7 +158,7 @@ class Router{
      * @return void
      */
     public function CallBackQuery($Route,$Controller){
-        if($this->UpdateType == "callback_query"&& preg_match("/^($Route)/", $this->Update->getCallbackQuery()->getData())){
+        if($this->UpdateType == "callback_query"&& preg_match("/$Route/", $this->Update->getCallbackQuery()->getData())){
             $this->exec($Controller,$this->Update->getCallbackQuery());
             exit();
         }
